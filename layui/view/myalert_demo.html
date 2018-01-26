@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>myalert_demo</title>
+    <link rel="stylesheet" href="../lib/layui/css/layui.css">
+</head>
+<body>
+
+<div>myalert_demo</div>
+
+<script src="../lib/layui/layui.js"></script>
+<script>
+    layui.config({
+        base:'../js/modules/',//设定扩展的Layui模块的所在目录，一般用于外部模块扩展
+    }).extend({
+        alert_demo0 : 'alert_demo0'
+    });
+
+    layui.use('alert_demo0', function () {
+        var alert_demo = layui.alert_demo0;
+        alert_demo.hello('我是自定义的组件');
+    })
+
+</script>
+
+</body>
+</html>
