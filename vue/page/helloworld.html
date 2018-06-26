@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>vue hello world</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+
+<div id="div1">
+    <span>Hello, {{name}}</span>
+</div>
+
+<div id="div2">
+    <span v-bind:title="message">鼠标放上去会发生什么呢?</span>
+</div>
+
+</body>
+<script>
+
+    var div1 = new Vue({
+        el: '#div1',
+        data:{
+            name: 'vue'
+        }
+    });
+
+    var div2 = new Vue({
+        el: '#div2',
+        data:{
+            message: '页面加载于 ' + new Date().toLocaleString()
+        }
+    });
+
+</script>
+</html>
