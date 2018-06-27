@@ -16,6 +16,20 @@
     <span v-bind:title="message">鼠标放上去会发生什么呢?</span>
 </div>
 
+<div id="div3">
+    <span v-if="seen">Good night!</span>
+</div>
+
+<div id="div4">
+    <p>{{message}}</p>
+    <button v-on:click="reverseMessage">逆转消息</button>
+</div>
+
+<div id="div5">
+    <p>{{message}}</p>
+    <input v-model="message">
+</div>
+
 </body>
 <script>
 
@@ -30,6 +44,32 @@
         el: '#div2',
         data:{
             message: '页面加载于 ' + new Date().toLocaleString()
+        }
+    });
+
+    var div3 = new Vue({
+        el: '#div3',
+        data:{
+            seen: true
+        }
+    });
+
+    var div4 = new Vue({
+        el: '#div4',
+        data:{
+            message: 'Good night!'
+        },
+        methods:{
+            reverseMessage:function(){
+                this.message = this.message.split('').reverse().join('');
+            }
+        }
+    });
+
+    var div5 = new Vue({
+        el: '#div5',
+        data:{
+            message: 'Good night!'
         }
     });
 
