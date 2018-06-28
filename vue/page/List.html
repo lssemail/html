@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>computed and watch</title>
+    <script type="text/javascript" src="../js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+    <p>列表渲染</p>
+    <div id="vm0">
+        <p v-for="(item, index) in items" :key="item.name">
+            {{index}}:{{item}}:{{title}}
+        </p>
+    </div>
+
+    <p>数组渲染</p>
+    <div id="vm1">
+        <p v-for="(item, key) in items">
+            {{key}}:{{item}}
+        </p>
+    </div>
+
+    <p>过滤数据</p>
+    <div id="vm2">
+        <p >
+            <span v-for="n in 10" v-if="n%2 == 0">{{n}}</span>
+        </p>
+    </div>
+
+</body>
+<script>
+
+     var vm0 = new Vue({
+
+         el : '#vm0',
+         data:{
+             items : [
+                 {name: 'java', price:234},
+                 {name: 'vue', price:123},
+                 {name: 'python', price:444},
+             ],
+             title: 'it books'
+         }
+
+     });
+
+     var vm1 = new Vue({
+
+         el : '#vm1',
+         data:{
+             items :[
+                 {'java':123},
+                 {'python':123},
+                 {'linux':123},
+                 {'js':123}
+             ]
+         },
+         watch:{
+             items:function () {
+                 console.log("update value");
+             }
+         }
+     });
+
+     var vm2 = new Vue({
+
+         el : '#vm2'
+     });
+
+</script>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>click test</title>
+    <script type="text/javascript" src="../js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+
+    <div class="div" id="btn" >
+        <button style="width: 100px;background-color: red" v-on:click="msg">i am a button</button>
+    </div>
+</body>
+
+<script>
+
+    var btn = new Vue({
+        el : '#btn',
+        data : {
+            count : 0
+        },
+        methods : {
+            msg:function () {
+                console.log(this.count++);
+            }
+        }
+    });
+
+</script>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>computed and watch</title>
+    <script type="text/javascript" src="../js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="../js/vue.js"></script>
+    <style type="text/css">
+
+        .active {
+            display: block;
+            width: 100px;
+            height: 100px;
+            border: 1px solid red;
+        }
+
+    </style>
+</head>
+<body>
+    <p>绑定html class</p>
+    <div id="demo0" v-bind:class="{active: isactive}">hello vue！</div>
+    <p>绑定html style</p>
+    <div v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }" id="demo1" style="width: 100px; height: 100px;border: 1px solid red;">
+        hello vue!
+    </div>
+</body>
+<script>
+
+     var demo0 = new Vue({
+
+         el : '#demo0',
+         data:{
+             isactive : false
+         }
+
+     });
+
+     var demo1 = new Vue({
+
+         el : '#demo1',
+         data:{
+             activeColor : 'blue',
+             fontSize : 14
+         }
+
+     });
+
+</script>
+</html>
