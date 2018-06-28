@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>component demo</title>
+    <script type="text/javascript" src="../js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="../js/vue.js"></script>
+    <script type="text/javascript" src="../js/component.js"></script>
+</head>
+<body>
+    <p>demo0</p>
+    <div id="vm0">
+        <button-counter></button-counter>
+    </div>
+
+    <p>demo1</p>
+    <div id="vm1">
+        <blog-post title="java" price="123"></blog-post>
+        <blog-post title="vue" price="123"></blog-post>
+        <blog-post title="css" price="123"></blog-post>
+
+    </div>
+
+    <div id="vm2">
+        <blog-post
+                v-for="post in posts"
+                v-bind:key="post.id"
+                v-bind:title="post.title"
+                v-bind:price="post.price"></blog-post>
+    </div>
+</body>
+<script>
+
+     var vm0 = new Vue({
+         el : '#vm0'
+     });
+
+     var vm1 = new Vue({
+         el : '#vm1'
+     });
+
+     var vm2 = new Vue({
+         el : '#vm2',
+         data:{
+             posts:[
+                 {id:1, title:'java', price:123},
+                 {id:2, title:'python', price:456}
+             ]
+         }
+     });
+
+</script>
+</html>
