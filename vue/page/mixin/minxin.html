@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>混入 demo</title>
+    <script type="text/javascript" src="../../js/vue.js"></script>
+</head>
+<body>
+
+</body>
+<script>
+
+    var myMixin = {
+
+        created:function () {
+            this.hello()
+        },
+        methods:{
+            hello:function(){
+                console.log("hello vue");
+            }
+        }
+    };
+
+    var MyComponent = Vue.extend({
+
+        mixins:[myMixin]
+    })
+
+    var comp = new MyComponent();
+
+</script>
+</html>
